@@ -1,6 +1,6 @@
 #	Database Administration - TP5 - Flavian Engevin
 
- 1. **Créer le docker-compose.yml comme indiqué.**
+ 1. Créer le [docker-compose.yml](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp5/DOCKER-COMPOSE.YML) comme indiqué.
  2. **Faire les cmd suivantes :**
 	 - $docker-compose build
 	 - $docker-compose up
