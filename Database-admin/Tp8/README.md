@@ -1,8 +1,8 @@
 
 #	Database Administration - TP8 - Flavian Engevin
 
- 1. Créer le [docker-compose.yml](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp8/DOCKER-COMPOSE.YML) comme indiqué.
- 2. Créer le [prometheus.yml](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp8/prometheus.YML)
+ 1. Créer le [docker-compose.yml](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp8/DOCKER-COMPOSE.yml) comme indiqué.
+ 2. Créer le [prometheus.yml](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp8/prometheus.yml)
  3. Faire les cmd suivantes :
 	 - $docker-compose up
 	 - $docker-compose exec mysql bash
