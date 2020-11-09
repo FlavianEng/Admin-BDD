@@ -18,7 +18,7 @@
 	Puis cliquer sur Executer. Le graph devrait s'afficher 
 7. Entrer les commandes suivantes dans l'encadré au dessus du bouton *Execute* 
 
-    `rate(mysql_global_status_commands_total{command="show_databases"}[5m]) or
-    `rate(mysql_global_status_commands_total{command="show_tables"}[5m]) or
-    `rate(mysql_global_status_commands_total{command="select"}[5m]) or
-    `rate(mysql_global_status_commands_total{command="insert"}[5m])
+    `rate(mysql_global_status_commands_total{command="show_databases"}[5m]) or`
+    `rate(mysql_global_status_commands_total{command="show_tables"}[5m]) or`
+    `rate(mysql_global_status_commands_total{command="select"}[5m]) or`
+    `rate(mysql_global_status_commands_total{command="insert"}[5m])`
