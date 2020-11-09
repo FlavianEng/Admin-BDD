@@ -1,0 +1,42 @@
+version: '3.8'
+
+services: 
+  mysql:
+    image: mariadb:10.5
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DB: myDb
+    volumes: 
+      - ./mysql:/var/lib/mysql
+      - ./backups:/backups
+    ports: 
+      - 3306
+    networks: 
+      - mynetwork
+
+  prometheus:
+    image: prom/prometheus
+    volumes: 
+    - ./backups:/backups
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks: 
+      - mynetwork
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+  
+  prom_mysql_exporter:
+    image: prom/mysqld-exporter
+    volumes:  
+      - ./mysql:/var/lib/mysql
+      - ./backups:/backups
+    ports: 
+      - 9104
+    environment: 
+      DATA_SOURCE_NAME: root:password@(mysql:3306)/myDb
+    networks: 
+      - mynetwork
+
+networks: 
+  mynetwork:    
