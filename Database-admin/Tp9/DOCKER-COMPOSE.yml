@@ -1,0 +1,57 @@
+version: '3.8'
+
+services: 
+  mysql:
+    image: mariadb:10.5
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DB: myDb
+    volumes: 
+      - ./mysql:/var/lib/mysql
+      - ./backups:/backups
+    ports: 
+      - 101:3306
+    networks: 
+      - mynetwork
+
+  prometheus:
+    image: prom/prometheus
+    volumes: 
+    - ./backups:/backups
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+    networks: 
+      - mynetwork
+  
+  prom_mysql_exporter:
+    image: prom/mysqld-exporter
+    volumes:  
+      - ./mysql:/var/lib/mysql
+      - ./backups:/backups
+    ports: 
+      - 9104
+    environment: 
+      DATA_SOURCE_NAME: root:password@(mysql:3306)/myDb
+    networks: 
+      - mynetwork
+
+# Credentials : [admin] for pseudo and passwords
+  grafana: 
+    image: grafana/grafana
+    ports: 
+      - 3000:3000
+    networks: 
+      - mynetwork
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - prometheus
+      
+networks: 
+  mynetwork:    
