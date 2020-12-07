@@ -23,7 +23,7 @@ On commence par la table public_events
 - `INSERT INTO public_events VALUES (NOW(), 'Bob', '38');`
 - `INSERT INTO public_events VALUES (NOW(), 'Bobby', '11');`
 - `INSERT INTO public_events VALUES (NOW(), 'Bobette', '93');`
-On recommence dans la table private_events
+<br>On recommence dans la table private_events
 - `INSERT INTO private_events VALUES (NOW(), 'Bob', '38');`
 - `INSERT INTO private_events VALUES (NOW(), 'Bobby', '11');`
 - `INSERT INTO private_events VALUES (NOW(), Bobette', '93');
@@ -34,10 +34,10 @@ On recommence dans la table private_events
 #### Vérification du contenu de la table public_events :
 - `USE events;`
 - `SELECT * FROM public_events;`
-- *Affichage des resultats de la table pulic_events*
+<br>Les résultats doivent s'afficher<br>
 On essaie ensuite (cela doit échouer) : 
 - `SELECT * FROM private_events;`
-L'erreur devrait être :
+<br>L'erreur devrait être :
 - *command denied to user 'event_supervisor'@'localhost' for table 'private_events'*
 
 ### Reconnexion en utilisateur ROOT :
