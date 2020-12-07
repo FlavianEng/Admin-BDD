@@ -1,28 +1,21 @@
 ## TP3 Admin BDD
----
-#### Intervenant/Professeur : Mr DeBest Denis
----
-### Création du [Script SQL](script.sql) qui :
-#### Creation de la base de données
-- `CREATE DATABASE IF NOT EXISTS teams; USE teams;`
-#### Création des tables
-- `CREATE TABLE IF NOT EXISTS games (match_date DATE, victory BOOLEAN, observation TEXT);`
-- `CREATE TABLE IF NOT EXISTS players (firstname VARCHAR(50), lastname VARCHAR(50), start_date DATE);`
-#### Donner tous les droits sur la table games
-- `GRANT ALL PRIVILEGES ON games TO 'manager'@'localhost';`
-#### Donner les droits d'écriture et de lecture sur la table players à un nouvel utilisateur recruiter
-- `GRANT INSERT, SELECT ON players TO 'recruiter'@'localhost' IDENTIFIED BY 'recruiter_password';`
-- `FLUSH PRIVILEGES;`
----
+### Création du fichier [Base SQL](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp3/base.sql). <br> Ce dernier effectue les actions suivantes.
+ - Creation de la base de données
+ - Création des tables
+ - Donne tous les droits sur la table games
+ - Donne les droits d'écriturse et de lecturse sur la table players à un nouvel utilisateur recruiter
+
+
 ### Exécuter le script pour les utilisateur adéquat :
 - `mysql -u manager -pmanager_password`
 - `mysql -u recruiter -precruiter_password`
 
-### Ajouter trois lignes dans la table games à l'aide d'un [Script SQL](insert.sql) :
+### Ajouter trois lignes dans la table games à l'aide du fichier [Insertion SQL](https://github.com/FlavianEng/Admin-BDD/blob/master/Database-admin/Tp3/insertion.sql). <br> Ce dernier ajoute les lignes suivantes.
 - `INSERT INTO teams.games  VALUES (NOW(), false, "observation");`
 - `INSERT INTO teams.games  VALUES (NOW(), true, "observation");`
 - `INSERT INTO teams.games  VALUES (NOW(), false, "observation");`
 - `INSERT INTO teams.games  VALUES (NOW(), false, "observation");`
 - `INSERT INTO teams.games  VALUES (NOW(), true, "observation");`
+
 ### L'éxecuter avec l'utilisateur adéquat 
 - `mysql -u manager -pmanager_password;`
